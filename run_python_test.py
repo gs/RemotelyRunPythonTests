@@ -13,7 +13,9 @@ class RunPythonTest(sublime_plugin.WindowCommand):
 
 	def settings(self):
 		settings = sublime.load_settings("run_python_test.sublime-settings")
-		if (settings.get("path")=="") or (settings.get("cmd")==""):
+		path = settings.get("path")
+		cmd = settings.get("cmd")
+		if (path == "") or (cmd == ""):
 			sublime.error_message("Please define 'cmd' and 'path' in run_python_test.sublime-settings")
 		else:
-			return [settings.get("path"), settings.get("cmd")]
+			return [path, cmd]
