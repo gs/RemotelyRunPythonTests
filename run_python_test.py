@@ -9,8 +9,11 @@ class RunPythonTest(sublime_plugin.WindowCommand):
 		if re.search('_test.py', file_name):
 			self.window.run_command('exec', {'cmd': [cmnd + file_name], 'shell':True} )
 		else:
-			sublime.error_message("Wtf? Is this a test file?")
+			sublime.error_message("Wtf? Is this a test file?!")
 
 	def settings(self):
 		settings = sublime.load_settings("run_python_test.sublime-settings")
-		return [settings.get("path"), settings.get("cmd")]
+		if (settings.get("path")=="") or (settings.get("cmd")==""):
+			sublime.error_message("Please define 'cmd' and 'path' in run_python_test.sublime-settings")
+		else:
+			return [settings.get("path"), settings.get("cmd")]
