@@ -2,7 +2,7 @@ import sublime
 import sublime_plugin
 import re
 
-class RunPythonTest(sublime_plugin.WindowCommand):
+class RemotelyRunPythonTest(sublime_plugin.WindowCommand):
 	def run(self):
 		path, cmnd = self.settings()
 		file_name = self.window.active_view().file_name().replace(str(path), '')
@@ -12,10 +12,10 @@ class RunPythonTest(sublime_plugin.WindowCommand):
 			sublime.error_message("Wtf? Is this a test file?!")
 
 	def settings(self):
-		settings = sublime.load_settings("run_python_test.sublime-settings")
+		settings = sublime.load_settings("remotely_run_python_test.sublime-settings")
 		path = settings.get("path")
 		cmd = settings.get("cmd")
 		if (path == "") or (cmd == ""):
-			sublime.error_message("Please define 'cmd' and 'path' in run_python_test.sublime-settings")
+			sublime.error_message("Please define 'cmd' and 'path' in remotely_run_python_test.sublime-settings")
 		else:
 			return [path, cmd]

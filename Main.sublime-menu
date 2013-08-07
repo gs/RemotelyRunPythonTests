@@ -10,16 +10,16 @@
         "id": "package-settings",
         "children": [
           {
-            "caption": "RunPythonTests",
+            "caption": "RemotelyRunPythonTests",
             "children": [
               {
                 "command": "open_file",
-                "args": {"file": "${packages}/RunPythonTests/run_python_test.sublime-settings"},
+                "args": {"file": "${packages}/RemotelyRunPythonTests/remotely_run_python_test.sublime-settings"},
                 "caption": "Settings - Default"
               },
               {
                 "command": "open_file",
-                "args": {"file": "${packages}/User/run_python_test.sublime-settings"},
+                "args": {"file": "${packages}/User/remotely_run_python_test.sublime-settings"},
                 "caption": "Settings - User"
               }
             ]
